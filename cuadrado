@@ -1,27 +1,17 @@
-from abc import ABC, abstractmethod
+from color import Color
+from figura_geometrica import FiguraGeometrica
 
-class FiguraGeometrica(ABC):
-    @abstractmethod
-    def area(self):
-        pass
-
-    @abstractmethod
-    def perimetro(self):
-        pass
-
-
-class Cuadrado(FiguraGeometrica):
-    def __init__(self, lado):
-        self.lado = lado
+class Cuadrado(FiguraGeometrica, Color):
+    def __init__(self, lado=0, color=None):
+        FiguraGeometrica.__init__(self, ancho=lado, alto=lado)  # ambos lados iguales en un cuadrado
+        Color.__init__(self,nombre= color)
 
     def area(self):
-        return self.lado ** 2
+        return self.alto * self.alto
 
-    def perimetro(self):
-        return 4 * self.lado
+    def __str__(self):
+        return f"Cuadrado -> {self.__dict__.__str__()}"
 
-
-# Ejemplo de uso
-cuadrado = Cuadrado(10)
-print("Área del cuadrado:", cuadrado.area())
-print("Perímetro del cuadrado:", cuadrado.perimetro())
+if __name__ == "__main__":
+    c1 = Cuadrado(lado=6, color= "Rojo")
+    print(c1)
