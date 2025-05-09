@@ -1,23 +1,27 @@
-class Rectangulo:
-    def __init__(self, ancho, alto):
-        self.ancho = ancho
-        self.alto = alto
+class FiguraGeometrica:
+    def __init__(self, alto=0, ancho=0):
+        self._alto = alto
+        self._ancho = ancho
 
-    def area(self):
-        return self.ancho * self.alto
+    @property
+    def alto(self):
+        return self._alto
 
-    def perimetro(self):
-        return 2 * (self.ancho + self.alto)
+    @alto.setter
+    def alto(self, valor):
+        self._alto = valor
 
-class Cuadrado(Rectangulo):
-    def __init__(self, lado):
-        super().__init__(lado, lado)
+    @property
+    def ancho(self):
+        return self._ancho
 
-# Ejemplo de uso
-rectangulo = Rectangulo(8, 2)
-print("Área del rectángulo:", rectangulo.area())
-print("Perímetro del rectángulo:", rectangulo.perimetro())
+    @ancho.setter
+    def ancho(self, valor):
+        self._ancho = valor
 
-cuadrado = Cuadrado(10)
-print("Área del cuadrado:", cuadrado.area())
-print("Perímetro del cuadrado:", cuadrado.perimetro
+    def __str__(self):
+        return f"Figura Geometrica: {self.__dict__.__str__()}"
+
+if __name__ == "__main__":
+    fg1 = FiguraGeometrica(alto=4, ancho=6)
+    print(fg1)
