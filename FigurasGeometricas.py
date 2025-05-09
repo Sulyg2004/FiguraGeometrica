@@ -33,3 +33,4 @@ if __name__ == "__main__":
     print(fg)
     print(f"Área: {fg.area()}")
     print(f"Perímetro: {fg.perimetro()}")
+
