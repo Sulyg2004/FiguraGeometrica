@@ -1,27 +1,35 @@
 class FiguraGeometrica:
-    def __init__(self, alto=0, ancho=0):
-        self._alto = alto
+    def __init__(self, ancho, alto):
         self._ancho = ancho
-
-    @property
-    def alto(self):
-        return self._alto
-
-    @alto.setter
-    def alto(self, valor):
-        self._alto = valor
+        self._alto = alto
 
     @property
     def ancho(self):
         return self._ancho
 
-    @ancho.setter
-    def ancho(self, valor):
-        self._ancho = valor
+    @property
+    def alto(self):
+        return self._alto
+
+    @property
+    def area(self):
+        return self._ancho * self._alto
+
+    @property
+    def perimetro(self):
+        return 2 * (self._ancho + self._alto)
+
+    def area (self):
+        return self._ancho * self._alto
+
+    def perimetro (self):
+        return 2 * (self._ancho + self._alto )
 
     def __str__(self):
         return f"Figura Geometrica: {self.__dict__.__str__()}"
 
 if __name__ == "__main__":
-    fg1 = FiguraGeometrica(alto=4, ancho=6)
-    print(fg1)
+    fg = FiguraGeometrica(8, 2)
+    print(fg)
+    print(f"Área: {fg.area()}")
+    print(f"Perímetro: {fg.perimetro()}")
